@@ -1,0 +1,13 @@
+## Topics to cover
+- C++ Program Structure
+- Program Structure
+- Namespaces
+- Data Types 
+- Type Casting
+- Input / Output (cin, cout)
+- Operators
+- Control Statements (if, switch, loops)
+- Functions
+- Inline Functions 
+- Default Arguments 
+- Function Overloading

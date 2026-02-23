@@ -1,0 +1,18 @@
+## Topics to cover
+- Arrays 
+- Linked List 
+- Stack 
+- Queue 
+- Hashing 
+- Two Pointers 
+- Sliding Window 
+- Prefix Sum 
+- Binary Search on Answer 
+- Recursion 
+- Backtracking 
+- Binary Tree 
+- Binary Search Tree 
+- Heap 
+- Graph (BFS, DFS) 
+- Dynamic Programming (Basics) 
+- Greedy Algorithms
