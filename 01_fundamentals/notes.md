@@ -1,90 +1,152 @@
-## Topics to cover
-- C++ Program Structure
-- Program Structure
-- Namespaces
+# C++ Fundamentals
 
-        #include <iostream>
-        namespace farhan{
-            int age=55;
-        }
+## Topics to Cover
 
-        namespace burhan{
-            int age=25;
-        }
-        int main(){
-            std::cout<<farhan::age;
-            return 0;
-        }
-        :: → Scope Resolution Operator
- 
-        A namespace in C++ is a declarative region that provides a scope to identifiers like variables, functions, and classes to avoid naming conflicts.
+### 1. C++ Program Structure & Namespaces
 
+**Namespace** - A declarative region that provides scope to identifiers (variables, functions, classes) to avoid naming conflicts.
 
-        prefer it: if we have large program with 10+ files, many functions and modules
-            when working in teams:
-                You create log()
-                Your teammate also creates log()
-                Without namespace →  Conflict
-                With namespace → No problem
-                teamA::log();
-                teamB::log();
+```cpp
+#include <iostream>
 
-        The reason we avoid using namespace std; in real-world projects is: It can cause naming conflicts.
+namespace farhan {
+    int age = 55;
+}
 
-        The std Namespace
-        All standard C++ library features belong to std.
-        Examples:
-            std::cout
-            std::cin
-            std::string
-            std::vector
-        When you write:
-            using namespace std;
-            You are importing everything from std.
+namespace burhan {
+    int age = 25;
+}
 
-        Using Scope Resolution Operator (Best Practice)
-            std::cout << "Hello";
-
-            Using Specific Members (Safer Alternative)
-                using std::cout;
-                using std::endl;
-
-
-        if namespace name is long:
-            namespace veryLongNamespaceName {
-                int x = 50;
-            }
-            namespace v = veryLongNamespaceName;
-            int main() {
-                std::cout << v::x;
-            }
+int main() {
+    std::cout << farhan::age;  // Output: 55
+    return 0;
+}
 ```
 
-- Data Types 
-            Data types in C/C++ specify what kind of data a variable can store, how much memory it occupies, the range of values it can hold, and what operations can be performed on it. They are important because computers store everything in binary, and the data type tells the compiler how to interpret those bits correctly.
+**Scope Resolution Operator (::)** - Accesses members within a namespace.
 
-            Basic (primitive) data types include int, float, double, char, and bool (in C++). An int is used to store whole numbers and usually occupies 4 bytes. A float stores decimal values with single precision (around 6–7 digits). A double also stores decimal values but with double precision (around 15–16 digits) and typically occupies 8 bytes. A char stores a single character and usually takes 1 byte. A bool stores logical values such as true or false.
+**When to Use Namespaces:**
+- Large programs with 10+ files
+- Team projects (prevents naming conflicts)
+- Example: `teamA::log()` vs `teamB::log()`
 
-            Each data type has a specific range based on its size. For example, a 32-bit signed integer can store values from −2,147,483,648 to 2,147,483,647. If a value exceeds this range, overflow occurs. Overflow means the value wraps around because the allocated memory cannot represent numbers beyond its limit.
+**Best Practices with std:**
+```cpp
+// ✓ Best: Use scope resolution
+std::cout << "Hello";
 
-            Signed and unsigned types differ in how they handle numbers. A signed type can store both positive and negative values, while an unsigned type stores only non-negative values. For example, an unsigned 32-bit integer has a range from 0 to 4,294,967,295. If a negative number is assigned to an unsigned variable, it wraps around using modulo arithmetic and produces a large positive value.
-            
+// ✓ Safe: Import specific members
+using std::cout;
+using std::endl;
 
-- Type Casting
-- Input / Output (cin, cout)
-- Operators : Operators in C++ are symbols that perform operations on variables and values.
+// ✗ Avoid in real projects: full namespace import
+using namespace std;  // Can cause conflicts
+```
 
-    Arithmetic: + - * / %
-    Relational: == != > < >= <=
-    Logical: && || !
-    Assignment: = += -= *= /= %=
-    Increment/Decrement: ++ --
-    Bitwise: & | ^ ~ << >>
-    Conditional (ternary): ?:
-    
-- Control Statements (if, switch, loops)
-- Functions
-- Inline Functions 
-- Default Arguments 
-- Function Overloading
-- Struct
+**Namespace Aliases:**
+```cpp
+namespace v = veryLongNamespaceName;
+std::cout << v::x;
+```
+
+---
+
+### 2. Data Types
+
+Data types specify what kind of data a variable stores, memory size, value range, and allowed operations.
+
+| Type | Size | Range | Purpose |
+|------|------|-------|---------|
+| `int` | 4 bytes | -2,147,483,648 to 2,147,483,647 | Whole numbers |
+| `float` | 4 bytes | ~6-7 significant digits | Decimal values (single precision) |
+| `double` | 8 bytes | ~15-16 significant digits | Decimal values (double precision) |
+| `char` | 1 byte | -128 to 127 | Single character |
+| `bool` | 1 byte | true / false | Logical values |
+
+**Signed vs Unsigned:**
+- **Signed**: Stores positive and negative values
+- **Unsigned**: Stores only non-negative values (0 to 4,294,967,295 for 32-bit)
+
+**Overflow**: When a value exceeds the range, it wraps around using modulo arithmetic.
+
+---
+
+### 3. Type Casting
+
+Converting one data type to another.
+
+---
+
+### 4. Input / Output
+
+```cpp
+std::cout << "Output";   // Display
+std::cin >> variable;    // Input
+```
+
+---
+
+### 5. Operators
+
+| Category | Operators |
+|----------|-----------|
+| Arithmetic | `+` `-` `*` `/` `%` |
+| Relational | `==` `!=` `>` `<` `>=` `<=` |
+| Logical | `&&` `\|\|` `!` |
+| Assignment | `=` `+=` `-=` `*=` `/=` `%=` |
+| Increment/Decrement | `++` `--` |
+| Bitwise | `&` `\|` `^` `~` `<<` `>>` |
+| Ternary | `?:` |
+
+---
+
+### 6. Control Statements
+
+- `if`, `else if`, `else`
+- `switch` case statements
+- Loops: `for`, `while`, `do-while`
+
+---
+
+### 7. Functions
+
+Reusable blocks of code.
+
+**Inline Functions** - Code is inserted directly at the call site, avoiding function call overhead.
+```cpp
+inline int add(int a, int b) {
+    return a + b;
+}
+```
+*Note: Compiler decides whether to actually inline based on function complexity.*
+
+With an inline function, when you call it:
+
+The code of the function is inserted directly at the point of the call.
+
+It does not jump to the function definition elsewhere like a normal function does.
+
+So, the CPU executes the function code right there, avoiding the overhead of a regular function call.
+
+Think of it like copy-pasting the function’s code wherever you call it.
+
+But remember: the compiler decides whether to actually inline it. If the function is too big or complex, the compiler may still treat it like a normal function.
+
+---
+
+### 8. Default Arguments
+
+Functions can have default parameter values.
+
+---
+
+### 9. Function Overloading
+
+Multiple functions with the same name but different parameters.
+
+---
+
+### 10. Struct
+
+User-defined composite data type grouping variables and functions.
+
