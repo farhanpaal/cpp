@@ -78,3 +78,5 @@ std::unique_ptr<int> ptr(new int(10));
 
 **Benefit:** Eliminates dangling pointers and memory leaks.
 
+nice one
+
