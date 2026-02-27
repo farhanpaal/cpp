@@ -1,6 +1,7 @@
 ## Pointers
 
-A pointer is a variable that stores a memory address (the location in RAM where another variable lives).
+A pointer is a variable that stores a memory address (the location in RAM where another variable lives). Instead hlding value, it stores address, we can dereference to get value from address.
+
 
 **How it works:**
 - `&` (address-of operator): Gets the memory address of a variable
