@@ -1,4 +1,5 @@
 #include <iostream>
+#include <memory>
 using namespace std;
 int pointer()
 {
@@ -48,10 +49,34 @@ int dynamicMemory()
     delete[] arr; // important for arrays
     return 0;
 }
+int danglingPointer()
+{
+    // A dangling pointer points to memory that has already been freed. Using it causes undefined behavior.
+    int *ptr = new int(5);
+    delete ptr;        // memory is freed
+    std::cout << *ptr; // ERROR! ptr is now dangling (invalid)
+}
+int smartPointer()
+{
+    unique_ptr<int> p1 = make_unique<int>(10);
+    cout << *p1 << endl;
+    // unique_ptr<int> p2 = p1; ❌ Error (cannot copy)
+    unique_ptr<int> p2 = move(p1); // ✅ Ownership transferred
+    return 0;
+    // When p2 goes out of scope → memory is automatically deleted.
+
+    // with move() p2 owns the memory.
+    // p1 becomes empty (null).
+    // Only p2 will delete the memory.
+    // when we transfer ownership, old one becomes null pointer. we CANNOT Dereference It like cout<< *p1
+}
+
 int main()
 {
     // pointer();
     // arr();
     // reference();
-    dynamicMemory();
+    // dynamicMemory();
+    // danglingPointer();
+    smartPointer();
 }

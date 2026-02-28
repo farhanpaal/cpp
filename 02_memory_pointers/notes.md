@@ -71,9 +71,16 @@ std::cout << *ptr;     // ERROR! ptr is now dangling (invalid)
 ## Smart Pointers (Safer Alternative)
 
 Smart pointers automatically manage memory for you—no manual `delete` needed.
+**Why smart pointers**
+In normal dynamic memory allocation: If you forget delete, memory leaks.
+Smart pointers automatically delete memory when it’s no longer needed.
 
 ```cpp
 std::unique_ptr<int> ptr(new int(10));
+
+syntax:
+#include <memory>
+std::unique_ptr<int> ptr;
 // Memory is freed automatically when ptr goes out of scope
 ```
 
