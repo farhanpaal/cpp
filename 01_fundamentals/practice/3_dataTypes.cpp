@@ -1,7 +1,11 @@
 #include <iostream>
-#include <iomanip>      // for setprecision
+#include <iomanip> // for setprecision
+using namespace std;
 
-int main() {
+ 
+
+int main()
+{
 
     // Integer type (typically 4 bytes)
     int a = 23;
@@ -31,30 +35,30 @@ int main() {
     long double i = 2345.235;
 
     // Set floating precision for better output visibility
-    std::cout << std::fixed << std::setprecision(10);
+    cout << fixed << setprecision(10);
 
-    std::cout << "Values:\n";
-    std::cout << "int a = " << a << "\n";
-    std::cout << "float b = " << b << "\n";
-    std::cout << "char c = " << c << " (ASCII: " << int(c) << ")\n";
-    std::cout << "double d = " << d << "\n";
-    std::cout << "bool e = " << e << "\n";
-    std::cout << "short f = " << f << "\n";
-    std::cout << "long g = " << g << "\n";
-    std::cout << "long long h = " << h << "\n";
-    std::cout << "long double i = " << i << "\n\n";
+    cout << "Values:\n";
+    cout << "int a = " << a << "\n";
+    cout << "float b = " << b << "\n";
+    cout << "char c = " << c << " (ASCII: " << int(c) << ")\n";
+    cout << "double d = " << d << "\n";
+    cout << "bool e = " << e << "\n";
+    cout << "short f = " << f << "\n";
+    cout << "long g = " << g << "\n";
+    cout << "long long h = " << h << "\n";
+    cout << "long double i = " << i << "\n\n";
 
-    std::cout << "Sizes (in bytes):\n";
-    std::cout << "int: " << sizeof(int) << "\n";
-    std::cout << "float: " << sizeof(float) << "\n";
-    std::cout << "char: " << sizeof(char) << "\n";
-    std::cout << "double: " << sizeof(double) << "\n";
-    std::cout << "bool: " << sizeof(bool) << "\n";
-    std::cout << "short: " << sizeof(short) << "\n";
-    std::cout << "long: " << sizeof(long) << "\n";
-    std::cout << "long long: " << sizeof(long long) << "\n";
-    std::cout << "long double: " << sizeof(long double) << "\n\n";
+    cout << "Sizes (in bytes):\n";
+    cout << "int: " << sizeof(int) << "\n";
+    cout << "string: " << sizeof(string) << "\n";
+    cout << "float: " << sizeof(float) << "\n";
+    cout << "char: " << sizeof(char) << "\n";
+    cout << "double: " << sizeof(double) << "\n";
+    cout << "bool: " << sizeof(bool) << "\n";
+    cout << "short: " << sizeof(short) << "\n";
+    cout << "long: " << sizeof(long) << "\n";
+    cout << "long long: " << sizeof(long long) << "\n";
+    cout << "long double: " << sizeof(long double) << "\n\n";
 
-    
     return 0;
 }
