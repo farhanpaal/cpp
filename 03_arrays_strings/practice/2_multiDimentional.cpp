@@ -76,6 +76,8 @@ int rowSum()
 
 int diagonalSum()
 {
+
+    // assignment
 }
 int main()
 {
