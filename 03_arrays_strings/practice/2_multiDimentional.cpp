@@ -76,8 +76,25 @@ int rowSum()
 
 int diagonalSum()
 {
-
-    // assignment
+    int nums[3][3] = {{1, 2, 3}, {4, 5, 6}, {7, 8, 9}};
+    int n = 3;
+    int dSum = 0;
+    for (int i = 0; i < 3; i++)
+    {
+        for (int j = 0; j < 3; j++)
+        {
+            if (i == j)
+            {
+                dSum += nums[i][j];
+            }
+            else if (i + j == n - 1)
+            {
+                dSum += nums[i][j];
+            }
+        }
+    }
+   
+    cout << dSum;
 }
 int main()
 {
