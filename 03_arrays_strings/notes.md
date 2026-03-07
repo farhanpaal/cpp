@@ -50,6 +50,9 @@ strlen(str);           // Get length
 strcpy(dest, src);     // Copy
 strcmp(str1, str2);    // Compare (returns int)
 strcat(str1, str2);    // Join strings
+
+string str="hello";
+cout<<str.substr(1);   //returns the string excluding the first character.
 ```
 
 ### Best Practices
