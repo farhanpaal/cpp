@@ -550,7 +550,7 @@ class Number {
     public:
         int value;
 
-        Number& add(int n) {
+        Number& add(int n) { // Reference to a Number object, So the function returns a reference to the same object, not a copy. ***
             value += n;
             return *this;  // Return reference to current object
         }
@@ -572,6 +572,14 @@ int main() {
 **Output:**
 ```
 11
+```
+
+**Number add(int n)** : If we did NOT use & (***)
+```Now the function returns a copy of the object, not the original one.
+This causes:
+- extra memory usage
+- slower execution
+- unnecessary copying
 ```
 
 ## Static Members
