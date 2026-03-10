@@ -1,16 +1,26 @@
-## Topics to cover (Standard template library)
+## STL and Data Structures
+
+What is Data structure?
+Data structures are used to store and organize data. An array is an example of a data structure, which allows multiple elements to be stored in a single variable.
+
+C++ includes many other data structures as well, each is used to handle data in different ways.
+
+These are part of the C++ STL, which stands for The Standard Template Library.
+
+
 # Containers
 - Vector 
+
 - Pair 
 - List 
-- Deque 
 - Stack 
 - Queue 
-- Priority Queue 
+- Deque 
 - Set 
+- Map 
+- Priority Queue 
 - Multiset 
 - Unordered Set 
-- Map 
 - Multimap 
 - Unordered Map
 # Iterators 
