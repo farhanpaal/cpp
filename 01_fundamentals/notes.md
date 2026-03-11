@@ -106,6 +106,46 @@ std::cin >> variable;    // Input
 - `switch` case statements
 - Loops: `for`, `while`, `do-while`
 
+#### For Loops
+
+**Traditional For Loop (Index-Based)**
+```cpp
+for(int i = 0; i < cars.size(); i++) {
+    cout << cars[i] << endl;
+}
+```
+- `i = 0` → Start from first index
+- `i < cars.size()` → Loop until last element
+- `i++` → Move to next index
+- `cars[i]` → Access element using index
+
+**Range-Based For Loop**
+```cpp
+for (string car : cars) {
+    cout << car << "\n";
+}
+```
+- Cleaner syntax: `for (datatype variable : container)`
+- Automatically iterates through each element without manual indexing
+
+#### While Loop
+
+```cpp
+while (condition) {
+    // Code executes while condition is true
+}
+```
+
+#### Do-While Loop
+
+```cpp
+do {
+    // Code executes at least once
+} while (condition);
+```
+- Executes the block first, then checks the condition
+- Useful when you need at least one iteration
+
 ---
 
 ### 7. Functions
