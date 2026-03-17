@@ -361,3 +361,37 @@ cout << cars[0];  // Now outputs Opel instead of Volvo
 - Add deque elements: use ```.push_front()``` and ```.push_back``` to add elements
 - remove deque elements: use ```.pop_front()``` and ```.pop_back``` to remove elements
 - Loop through deque using for loop or for-each
+
+## What are sets?
+A set stores unique elements where they:
+```
+- Are sorted automatically in ascending order.
+- Are unique, meaning equal or duplicate values are ignored.
+- Can be added or removed, but the value of an existing element cannot be changed.
+- Cannot be accessed by index numbers, because the order is based on - sorting and not indexing.
+```
+
+- Include library ```#include <set>```
+- create set ```set<string> cars;``` or ```set<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};```
+- __Note:__ If we print them in loop, output will always be in order.
+
+- Sort a Set in Descending Order: use ```greater<type>``` functor : like ```set<int, greater<int>> numbers ={2,5,3,9,77,34,2} ```
+```
+// Sort elements in a set in descending order
+set<int, greater<int>> numbers = {1, 7, 3, 2, 5, 9};
+
+for (int num : numbers) {
+  cout << num << "\n";
+}
+```
+- If we will try to add any element twice, one element will be ignored
+
+- __add elements__ : use ```.insert("elemName")```
+- __remove elements__ : use ```.erase("elemName")```
+- __remove all elements__ : use ```.clear()```
+
+- Access: Do dereference, then access first and last using ```.begin()``` - ```.rbegin()``` .
+```
+cout << *cheez.begin() << endl;
+cout << *cheez.rbegin();
+```
