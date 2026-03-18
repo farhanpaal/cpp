@@ -336,6 +336,32 @@ cars.push("Mazda");
 - __size__ using ```.size()```
 - __check empty__ ```.empty()```
 
+
+## What is Priority Queue
+
+A priority queue is a special type of queue where:
+ - Elements are not processed in insertion order
+ - Instead, the element with the highest priority is removed first
+  👉 By default in C++:
+  - The largest element has the highest priority (Max Heap)
+- __Analogy:__ Hospital emergency room 🏥 - Patients with more serious conditions are treated first — not the ones who arrived first.
+
+```
+#include <queue>
+using namespace std;
+
+priority_queue<int> pq;
+```
+
+- Insert: ```pq.push(10);```
+- Access top (highest priority): ```cout << pq.top();  // Output: 30```
+- Remove top: ```pq.pop();  // Removes 30```
+- Check empty: ```pq.empty();```
+
+Note: By default it's MAX heap
+- To make min heap use ```greater<int>```
+```priority_queue<int, vector<int>, greater<int>> pq;```
+
 ## What is Deque?
 A deque (stands for double-ended queue) 
 As we know, elements in a queue are added at the end and removed from the front.
@@ -434,7 +460,7 @@ people["Anja"] = 30;
   for (auto person : people) {
     cout << person.first << " is: " << person.second << "\n";
   }
-  
+
   The output will be:
   John is: 32
   Bo is: 29
