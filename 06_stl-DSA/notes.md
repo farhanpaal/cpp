@@ -395,3 +395,48 @@ for (int num : numbers) {
 cout << *cheez.begin() << endl;
 cout << *cheez.rbegin();
 ```
+
+## What is Map?
+A map stores elements in "key/value" pairs.
+Elements in a map are:
+ - Accessible by keys (not index), and each key is unique.
+ - Automatically sorted in ascending order by their keys.
+- Include library ```#include <map>```
+- Create Mao ```map<keytype, valuetype> mapName```
+- People map: ```map<string, int> people = { {"John", 32}, {"Adele", 45}, {"Bo", 29} };```
+- Access a Map: Using key in square braces. ```cout << "John is: " << people["John"] << "\n";```
+  *We can also access using .at() function* ```cout << "Adele is: " << people.at("Adele") << "\n";```
+- Change Values: ```people["John"] = 50;```
+- Add elements: Use square braces or .insert() function.
+```
+people.insert({"Jenny", 22});
+people["Anja"] = 30;
+```
+- A map cannot have elements with equal keys. Values can be equal. 
+- Remove elements using ```.erase()```
+- Remove all using ```.clear()```
+- __Loop__ We can do, but remember
+  You can loop through a map with the for-each loop. However, there are a couple of things to be aware of:
+
+  - Use the auto keyword (introduced in C++ version 11) inside the for loop. - This allows the compiler to automatically determine the correct data type for each key-value pair.
+  - Since map elements consist of both keys and values, we have to include ```.first``` to access the keys, and ```.second``` to access values in the loop.
+  - Elements in the map are sorted automatically in ascending order by their keys:
+  ```
+  map<string, int> people = { {"John", 32}, {"Adele", 45}, {"Bo", 29} };
+
+  for (auto person : people) {
+    cout << person.first << " is: " << person.second << "\n";
+  }
+  ```
+- Reverse using ```greater<type>``` function.
+  ```
+  map<string, int, greater<string>> people = { {"John", 32}, {"Adele", 45}, {"Bo", 29} };
+  for (auto person : people) {
+    cout << person.first << " is: " << person.second << "\n";
+  }
+  
+  The output will be:
+  John is: 32
+  Bo is: 29
+  Adele is: 45
+  ```

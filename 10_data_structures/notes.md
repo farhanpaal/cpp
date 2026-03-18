@@ -1,8 +1,5 @@
 ## Topics to cover
-- Arrays 
 - Linked List 
-- Stack 
-- Queue 
 - Hashing 
 - Two Pointers 
 - Sliding Window 
