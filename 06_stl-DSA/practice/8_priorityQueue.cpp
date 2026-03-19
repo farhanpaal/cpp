@@ -9,7 +9,7 @@ int main()
     marks.push(22);
     marks.push(222);
     marks.push(42);
-    cout << marks.top();
+    cout << marks.top();  // 222
 
     cout << "------------------";
 
@@ -18,13 +18,15 @@ int main()
     marksQueue.push(22);
     marksQueue.push(222);
     marksQueue.push(42);
-    cout << marksQueue.front();
+    cout << marksQueue.front();  // 34
 
     cout << "------------------";
+
     priority_queue<int, vector<int>, greater<int>> Revmarks;
     Revmarks.push(34);
     Revmarks.push(22);
     Revmarks.push(222);
-    cout << marksQueue.front();
+    cout << Revmarks.top();  // 22 (min heap)
+
     return 0;
 }

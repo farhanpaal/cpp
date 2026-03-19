@@ -422,6 +422,34 @@ cout << *cheez.begin() << endl;
 cout << *cheez.rbegin();
 ```
 
+## What is multiset
+A multiset is A collection of elements, Automatically sorted, Allows duplicates.
+- Declare: ```multiset<int> ms;```
+- ```.insert()`` used to add elements
+- Print elements
+```
+for (auto x : ms)
+    cout << x << " ";
+```
+- __count duplicates__ ```cout << ms.count(10);```  // how many times 10 appears
+- __Erase__ ```.erase(10)``` Remove all 10s, ```ms.erase(ms.find(10));``` remove only one.
+
+## What is an Unordered set.
+An unordered_set: Stores unique elements only, No sorting, Very fast (O(1)) operations
+- include library ```#include <unordered_set>```
+- declare ```unordered_set<int> us;```
+- __Insert__ ```us.insert(10);```
+- __find__ 
+find(value) tries to search for that value inside the container.
+  - If found → returns iterator pointing to that element
+  - If NOT found → returns end()
+  
+end() means: “Position just AFTER the last element”. It does NOT point to a real element
+
+```  
+    if (us.find(10) != us.end())
+      cout << "Found";
+```
 ## What is Map?
 A map stores elements in "key/value" pairs.
 Elements in a map are:
