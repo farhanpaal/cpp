@@ -494,3 +494,198 @@ people["Anja"] = 30;
   Bo is: 29
   Adele is: 45
   ```
+
+## multimap (duplicate keys + sorted)
+  It's part of the ordered map family, Stores multiple values for the same key. Keys are sorted automatically (ascending order by default). Implemented using a balanced tree (like Red-Black Tree)
+  ```
+  #include <iostream>
+#include <map>
+using namespace std;
+
+int main() {
+    multimap<int, string> mm;
+    mm.insert({1, "A"});
+    mm.insert({1, "B"});
+    mm.insert({2, "C"});
+
+    for (auto &p : mm) {
+        cout << p.first << " " << p.second << endl;
+    }
+}
+```
+
+## unordered_map (no duplicate or sorted, fast)
+It uses a hash table, Stores unique keys only (no duplicates), No ordering of elements
+```
+#include <iostream>
+#include <unordered_map>
+using namespace std;
+
+int main() {
+    unordered_map<int, string> um;
+    um[1] = "A";
+    um[2] = "B";
+    um[1] = "C"; // overwrites value
+
+    for (auto &p : um) {
+        cout << p.first << " " << p.second << endl;
+    }
+}
+```
+
+## What are Iterators
+Iterators are used to access and iterate through elements of data structures (vectors, sets, etc.), by "pointing" to them.
+It is called an "iterator" because "iterating" is the technical term for looping.
+
+eg:
+``` 
+vector<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Create a vector iterator called it
+vector<string>::iterator it;
+
+// Loop through the vector with the iterator
+for (it = cars.begin(); it != cars.end(); ++it) {
+  cout << *it << "\n";
+}
+```
+  - First we create a vector of strings to store the names of different car manufactures.
+ - Then we create a "vector iterator" called it, that we will use to loop through the vector.
+ - Next, we use a for loop to loop through the vector with the iterator. The iterator (it) points to the first element in the vector (cars.begin()) and the loop continues as long as it is not equal to cars.end().
+ - The increment operator (++it) moves the iterator to the next element in the vector.
+ - The dereference operator (*it) accesses the element the iterator points to.
+
+**What is begin() and end()?**
+begin() and end() are functions that belong to data structures, such as vectors and lists. They do not belong to the iterator itself. Instead, they are used with iterators to access and iterate through the elements of these data structures.
+
+```begin()``` returns an iterator that points to the first element of the data structure.
+```end()``` returns an iterator that points to one position after the last element.
+ - end() points to one position after the last element in the vector (meaning it doesn't point to an actual element, but rather indicates that this is the end of the vector). 
+  - So, to use end() to point to the last element in the cars vector (Mazda), you can use cars.end() - 1
+
+**Why do we say "point"?**
+
+Iterators are like "pointers" in that they "point" to elements in a data structure rather than returning values from them. They refer to a specific position, providing a way to access and modify the value when needed, without making a copy of it. For example:
+
+```
+// Point to the first element in the vector
+it = cars.begin();
+
+// Modify the value of the first element
+*it = "Tesla";
+
+// Volvo is now Tesla
+```
+
+**The auto Keyword**
+
+In C++ 11 and later versions, you can use the auto keyword instead of explicitly declaring and specifying the type of the iterator.
+
+_The auto keyword allows the compiler to automatically determine the correct data type, which simplifies the code and makes it more readable_
+
+- Instead of this:
+
+  - ```vector<string>::iterator it = cars.begin();```
+   You can simply write this:
+
+  - ```auto it = cars.begin();```
+ In the example above, the compiler knows the type of it based on the return type of cars.begin(), which is vector<string>::iterator.
+
+**For-Each Loop vs. Iterators**
+We can use a for-each loop to just loop through elements of a data structure and read them, like this:
+Example
+```
+// Create a vector called cars that will store strings
+vector<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Print vector elements
+for (string car : cars) {
+  cout << car << "\n";
+}
+```
+
+Note: when you need to add, modify, or remove elements during iteration, iterate in reverse, or skip elements, you should use iterators:
+
+Example
+```
+// Create a vector called cars that will store strings
+vector<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Loop through vector elements
+for (auto it = cars.begin(); it != cars.end(); ) {
+  if (*it == "BMW") {
+    it = cars.erase(it); // Remove the BMW element
+  } else {
+    ++it;
+  }
+}
+
+// Print vector elements
+for (const string& car : cars) {
+  cout << car << "\n";
+}
+```
+
+**Iterate in Reverse**
+
+To iterate in reverse order, you can use ```rbegin()``` and ```rend()``` instead of ```begin()``` and ```end()```:
+
+Example
+```
+// Iterate in reverse order
+for (auto it = cars.rbegin(); it != cars.rend(); ++it) {
+  cout << *it << "\n";
+}
+```
+
+Iterators are great for code reusability since you can use the same syntax for iterating through vectors, lists, deques, sets and maps:
+
+```
+List Example
+// Create a list called cars that will store strings
+list<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+// Loop through the list with an iterator
+for (auto it = cars.begin(); it != cars.end(); ++it) {
+  cout << *it << "\n";
+}
+```
+**Loop through map with an iterator**
+```
+// Create a map that will store strings and integers
+map<string, int> people = { {"John", 32}, {"Adele", 45}, {"Bo", 29} };
+
+// Loop through the map with an iterator
+for (auto it = people.begin(); it != people.end(); ++it) {
+  cout << it->first << " is: " << it->second << "\n";
+}
+```
+
+## Algorithms
+
+Another important feature of iterators is that they are used with different algorithm functions, such as sort() and find() (found in the ``<algorithm>`` library), to sort and search for elements in a data structure.
+
+For example, the sort() function takes iterators (typically returned by begin() and end()) as parameters to sort elements in a data structure from the beginning to the end.
+
+In this example, the elements are sorted alphabetically since they are strings:
+```
+#include <iostream>
+#include <vector>
+#include <algorithm>  // Include the <algorithm> library
+using namespace std;
+
+int main() {
+  // Create a vector called cars that will store strings
+  vector<string> cars = {"Volvo", "BMW", "Ford", "Mazda"};
+
+  // Sort cars in alphabetical order
+  sort(cars.begin(), cars.end());
+
+  // Print cars in alphabetical order
+  for (string car : cars) {
+    cout << car << "\n";
+  }
+
+  return 0;
+}
+```
