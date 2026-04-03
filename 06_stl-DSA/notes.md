@@ -681,7 +681,7 @@ int main() {
   // Sort cars in alphabetical order
   sort(cars.begin(), cars.end());
 
-  // Print cars in alphabetical order
+  // Print carss in alphabetical order
   for (string car : cars) {
     cout << car << "\n";
   }
