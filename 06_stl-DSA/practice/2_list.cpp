@@ -1,6 +1,8 @@
 #include <iostream>
 #include <list>
 #include <string>
+// remove last & add last: pop_back(), push_back(45)
+// remove first & add first: pop_front(), push_front(83)
 using namespace std;
 
 int main()
