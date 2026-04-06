@@ -214,6 +214,13 @@ To remove an element from the vector, you can use the ```.pop_back()``` function
 
 Note: Elements are usually only added and removed from the end of the vector. If you need to add or remove elements from both ends, it is often better to use a deque instead of a vector.
 
+- ```push_back(...)``` : add in end
+- ```pop_back()``` : remove in end
+- ```v.insert(v.begin(), 1);``` : add in begin
+
+## Clear whole vector.
+```cars.clear();```: Clear whole vector.
+
 ## Check if a Vector is Empty
 There is also a function to find out whether a vector is empty or not.
 
@@ -278,9 +285,10 @@ for (string car : cars) {
 
 - change element ```    cars.front() = "bolero";  // change first element.```
 
-- Add Elements to list: use ```.pop()``` to insert an element at the beginning of the list and ```.push_back()``` to add an element at the end
-
-- Remove Elements to list: use ```.pop_front()``` to remove an element at the beginning of the list and ```.pop_back()``` to remove an element at the end
+ - we also use these 4 in deque
+- remove first & add first: ```pop_front(), push_front(83)```
+- remove last & add last: ```pop_back(), push_back(45)```
+ 
 
 - Check if list is empty using ```list.empty()```
 
@@ -312,7 +320,14 @@ cars.push("Mazda");
 
 - Remove element: We can remove using ```.pop()``` function, it will remove the last element which was added
 
-- Note: We can't iterate stack.
+- **Stack isn't iterable because it has no begin() and end().**
+
+ - ```push(value)``` — add an element to the top
+ - ```pop()``` — remove the top element
+ - ```top()``` — access the top element
+ - ```empty()``` — returns true if stack is empty
+ - ```size()``` — returns number of elements
+ - ```swap(otherStack)``` — swap contents with another stack
 
 ## What is Queue
 A queue stores multiple elements in a specific order, called FIFO. FIFO stands for First in, First Out.
@@ -335,6 +350,8 @@ cars.push("Mazda");
 - __remove__ using ```.pop()``` This will remove the front element (the first and oldest element that was added to the queue): 
 - __size__ using ```.size()```
 - __check empty__ ```.empty()```
+- ```front()``` — access the front element
+- ```back()``` — access the back element
 
 
 ## What is Priority Queue
@@ -387,6 +404,9 @@ cout << cars[0];  // Now outputs Opel instead of Volvo
 - Add deque elements: use ```.push_front()``` and ```.push_back``` to add elements
 - remove deque elements: use ```.pop_front()``` and ```.pop_back``` to remove elements
 - Loop through deque using for loop or for-each
+
+ - deque supports direct initialization from {...}
+ - queue and priority_queue do not support direct brace-list initialization
 
 ## What are sets?
 A set stores unique elements where they:
@@ -665,6 +685,7 @@ for (auto it = people.begin(); it != people.end(); ++it) {
 
 Another important feature of iterators is that they are used with different algorithm functions, such as sort() and find() (found in the ``<algorithm>`` library), to sort and search for elements in a data structure.
 
+## Sorting Algorithm
 For example, the sort() function takes iterators (typically returned by begin() and end()) as parameters to sort elements in a data structure from the beginning to the end.
 
 In this example, the elements are sorted alphabetically since they are strings:
@@ -689,3 +710,15 @@ int main() {
   return 0;
 }
 ```
+- To reverse the order, we can use rbegin() and rend() instead of begin() and end()
+- To only sort specific elements, from any element sort(numbers.begin() + 3, numbers.end()); it will start from 4th element
+
+## Searching Algorithms
+- To search for specific elements in a vector, you can use the ```find()``` function.
+
+- It takes three parameters: ```start_iterator, end_iterator, value```, where value is the value to search for.
+
+- compare the result against ```end()``` to know if it was found
+- ```upper_bound()``` finds the first element greater than a value in a sorted range
+- ```lower_bound()``` finds the first element that is not less than value
+- ```min_element()``` and ```max_element()``` find the smallest and largest values respectively
