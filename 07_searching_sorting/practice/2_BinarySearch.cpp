@@ -51,7 +51,7 @@ int main()
 
         if (arr[mid] == num)
         {
-            printf("Found at index %d", mid);
+            printf("Found at index %d ", mid);
             return 0;
         }
         else if (num > arr[mid])
